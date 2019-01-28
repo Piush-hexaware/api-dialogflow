@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const request = require("request");
 const restService = express();
 
 restService.use(
@@ -12,6 +12,9 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
+var path = require("path");
+var server= require('http').createServer(restService)
+var io= require('socket.io')(server);
 
 var responseObj;
 
@@ -22,7 +25,10 @@ res.setHeader('Content-Type','application/json');
 console.log("here is the post request from dialogflow");
 console.log("request body " + JSON.stringify(req.body));
 console.log("parameter form dilaogflow " + req.body.queryResult.parameters['geo-city']);
-  responseObj=
+var city=req.body.queryResult.parameters['geo-city'];
+var w = getWeather(city);
+console.log("data from weather " + w);
+responseObj=
   {
     "payload": {
       "google": {
@@ -31,7 +37,7 @@ console.log("parameter form dilaogflow " + req.body.queryResult.parameters['geo-
           "items": [
             {
               "simpleResponse": {
-                "textToSpeech": "hii i am piyush weather"
+                "textToSpeech": w
               }
             }
           ]
@@ -76,6 +82,44 @@ return res.json(responseObj);
 //     source: "calc-app"
 //   });
 // });
+
+
+
+// apiKey=a460fad55c48ec9d205741d13b1376fb
+
+ var result ;
+
+ function cb(err,response,body){
+     var weather = JSON.parse(body);
+     console.log("weather data " + weather);
+     if(weather.messasge === 'city not found')
+     {
+         result = "unable to get weather " + weather.messasge;
+        }
+
+        else{
+            result = weather.main.temp + "degree" + weather.weather[0].description;
+        }
+    }
+
+    function getWeather(city){
+        result = undefined;
+        var url ="http://api.openweathermap.org/data/2.5/weather?q=chennai&units=Metric&appid=a460fad55c48ec9d205741d13b1376fb" 
+        var req = request(url,cb);
+        while(result === undefined)
+        {
+            require('deasync').runLoopOnce();
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
 
 restService.listen(process.env.PORT || 5000, function() {
   console.log("Server up and listening");

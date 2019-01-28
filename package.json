@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"index.js",
+    "start": "index.js",
     "serve": "nodemon index.js"
   },
   "repository": {
@@ -15,8 +15,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "deasync": "^0.1.14",
     "express": "^4.16.4",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/Piush-hexaware/api-dialogflow/issues"
