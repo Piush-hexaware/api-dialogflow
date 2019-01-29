@@ -79,6 +79,6 @@ return res.json(responseObj);
         return result;
     }
 
-restService.listen(process.env.PORT || 5050, function() {
+restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
