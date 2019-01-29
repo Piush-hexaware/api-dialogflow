@@ -90,6 +90,9 @@ return res.json(responseObj);
  var result ;
 
  function cb(err,response,body){
+     //  var weather = '';
+  //    var stringify = JSON.stringify(body)
+  //    weather = JSON.parse(stringify);
      var weather = JSON.parse(body);
      console.log("weather data " + weather);
      if(weather.messasge === 'city not found')
