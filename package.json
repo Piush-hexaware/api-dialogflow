@@ -7,10 +7,6 @@
     "start": "index.js",
     "serve": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Piush-hexaware/api-dialogflow.git"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,9 +16,5 @@
     "nodemon": "^1.18.9",
     "request": "^2.88.0",
     "socket.io": "^2.2.0"
-  },
-  "bugs": {
-    "url": "https://github.com/Piush-hexaware/api-dialogflow/issues"
-  },
-  "homepage": "https://github.com/Piush-hexaware/api-dialogflow#readme"
+  }
 }
