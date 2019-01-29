@@ -4,7 +4,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const restService = express();
-require('deasync'); 
 
 restService.use(
   bodyParser.urlencoded({
@@ -13,9 +12,6 @@ restService.use(
 );
 
 restService.use(bodyParser.json());
-var path = require("path");
-var server= require('http').createServer(restService)
-var io= require('socket.io')(server);
 
 var responseObj;
 restService.post("/api",function(req,res){
