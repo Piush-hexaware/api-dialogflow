@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "node index.js",
     "serve": "nodemon index.js"
   },
   "author": "",
@@ -14,7 +14,7 @@
     "deasync": "^0.1.14",
     "express": "^4.16.4",
     "nodemon": "^1.18.9",
-    "request": "^2.88.0",
-    "socket.io": "^2.2.0"
+    "request": "^2.88.0"
+
   }
 }
