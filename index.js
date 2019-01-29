@@ -60,13 +60,13 @@ return res.json(responseObj);
         }
 
         else{
-            result = weather.main.temp + "degree" + weather.weather[0].description;
+            result = weather.main.temp + " degree " + weather.weather[0].description;
         }
     }
 
     function getWeather(city){
         result = undefined;
-        var url ="http://api.openweathermap.org/data/2.5/weather?q=chennai&units=Metric&appid=a460fad55c48ec9d205741d13b1376fb" 
+        var url ="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=Metric&appid=a460fad55c48ec9d205741d13b1376fb" 
         var req = request(url,cb);
         while(result === undefined)
         {
