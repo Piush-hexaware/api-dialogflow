@@ -68,10 +68,6 @@ return res.json(responseObj);
         result = undefined;
         var url ="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=Metric&appid=a460fad55c48ec9d205741d13b1376fb" 
         var req = request(url,cb);
-        while(result === undefined)
-        {
-            require('deasync').runLoopOnce();
-        }
         return result;
     }
 
