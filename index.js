@@ -33,7 +33,7 @@ responseObj=
           "items": [
             {
               "simpleResponse": {
-                "textToSpeech": w
+                "textToSpeech": **w**
               }
             }
           ]
